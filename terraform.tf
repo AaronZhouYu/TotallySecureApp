@@ -6,6 +6,7 @@ resource "alicloud_ram_account_password_policy" "corporate1" {
   hard_expiry                  = true
   password_reuse_prevention    = 5
   max_login_attempts           = 3
+  minimum_password_length      = 16
 }
 
 resource "alicloud_ram_account_password_policy" "corporate2" {
