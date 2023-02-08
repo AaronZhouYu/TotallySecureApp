@@ -1,6 +1,6 @@
 resource "alicloud_ram_account_password_policy" "corporate1" {
   require_lowercase_characters = false
-  require_uppercase_characters = false
+  require_uppercase_characters = true
   require_numbers              = false
   require_symbols              = false
   hard_expiry                  = true
