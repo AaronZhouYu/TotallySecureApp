@@ -46,7 +46,7 @@ jobs:
           #additional_params: --sast-incremental
           #additional_params: --threshold sast-high=5
           #additional_params: --tags test1 test2 --scan-types sast,sca,kics --file-filter !readme --report-format sarif --output-name results     
-          additional_params: --sast-incremental --report-format sarif --output-path .
+          additional_params: --report-format sarif --output-path .
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v2
         with:
