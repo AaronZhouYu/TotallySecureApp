@@ -1,0 +1,38 @@
+name: Checkmarx One Scan
+on:
+  push:
+    branches:
+      - main
+      - master
+      - dev
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      # required for all workflows
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Checkmarx One CLI Action
+        uses: Checkmarx/ast-github-action@2.0.14 #Github Action version
+        with:
+          project_name: AaronZhouYu/TotallySecureApp
+          cx_tenant: cx_apac_se_sgp_aaron_zhou
+          base_uri: https://sng.ast.checkmarx.net
+          cx_client_id: ${{ secrets.CLIENT_ID }}
+          cx_client_secret: ${{ secrets.SECRET }}
+          # GitHub API Token
+          github_token: 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
+          #additional_params: --sast-incremental
+          #additional_params: --threshold sast-high=5
+          #additional_params: --tags test1 test2 --scan-types sast,sca,kics --file-filter !readme --report-format sarif --output-name results
+          additional_params: --report-format sarif --output-path .
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          # Path to SARIF file relative to the root of the repository
+          sarif_file: cxone_result.sarif
