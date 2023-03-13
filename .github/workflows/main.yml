@@ -2,6 +2,12 @@ name: Checkmarx Scan
 
 # Controls when the workflow will run
 on:
+  push:
+    branches:
+      - main
+      - master
+      - dev
+
   pull_request:
     types: [opened, reopened, synchronize]
     branches: [ "main" ]
