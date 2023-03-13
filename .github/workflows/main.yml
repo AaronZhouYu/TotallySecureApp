@@ -41,6 +41,8 @@ jobs:
           cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }} # This should be created within your Checkmarx One account : https://checkmarx.com/resource/documents/en/34965-118315-authentication-for-checkmarx-one-cli.html#UUID-a4e31a96-1f36-6293-e95a-97b4b9189060_UUID-4123a2ff-32d0-2287-8dd2-3c36947f675e
           cx_tenant: ${{ secrets.CX_TENANT }} # This should be replaced by your tenant for Checkmarx One
           project_name: AaronZhouYu/TotallySecureApp
+          # GitHub API Token
+          github_token: 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
           #additional_params: --sast-incremental
           #additional_params: --threshold sast-high=5
           #additional_params: --tags test1 test2 --scan-types sast,sca,kics --file-filter !readme --report-format sarif --output-name results     
