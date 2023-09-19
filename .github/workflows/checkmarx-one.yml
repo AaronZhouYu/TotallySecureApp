@@ -55,7 +55,7 @@ jobs:
           cx_tenant: ${{ secrets.CX_TENANT }} # This should be replaced by your tenant for Checkmarx One
           project_name: AaronZhouYu/TotallySecureApp
           #additional_params: --sast-incremental
-          #additional_params: --threshold sast-high=5
+          additional_params: --threshold "sast-high=5; sast-medium=20; iac-security-high=5; sca-high=5; api-security-high=5"
           #additional_params: --tags test1 test2 --scan-types sast,sca,kics --file-filter !readme --report-format sarif --output-name results
           additional_params: --report-format sarif --output-path .
       - name: Upload SARIF file
