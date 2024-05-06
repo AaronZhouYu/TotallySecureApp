@@ -1,5 +1,5 @@
 # Use an official Ubuntu base image
-FROM ubuntu:20.04
+FROM debian:unstable-20240311
 
 # Set environment variables to non-interactive (this prevents some prompts)
 ENV DEBIAN_FRONTEND=noninteractive
